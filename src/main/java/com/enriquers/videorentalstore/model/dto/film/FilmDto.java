@@ -1,5 +1,6 @@
-package com.enriquers.videorentalstore.model.dto;
+package com.enriquers.videorentalstore.model.dto.film;
 
+import com.enriquers.videorentalstore.model.dto.PriceDto;
 import lombok.Builder;
 import lombok.Getter;
 

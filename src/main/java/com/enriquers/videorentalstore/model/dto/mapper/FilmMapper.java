@@ -1,8 +1,8 @@
 package com.enriquers.videorentalstore.model.dto.mapper;
 
-import com.enriquers.videorentalstore.domain.Film;
-import com.enriquers.videorentalstore.model.dto.FilmDto;
-import com.enriquers.videorentalstore.model.dto.FilmTypeEnum;
+import com.enriquers.videorentalstore.domain.film.Film;
+import com.enriquers.videorentalstore.model.dto.film.FilmDto;
+import com.enriquers.videorentalstore.model.dto.film.FilmTypeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -24,16 +24,5 @@ public class FilmMapper {
         .price(priceMapper.toDto(film.getType().getPrice()))
         .build();
   }
-
-//  public Film toEntity(FilmDto filmDto) {
-//    if (filmDto == null) {
-//      return null;
-//    }
-//
-//    Film film = new Film();
-//    film.setTitle(filmDto.getTitle());
-//    film.setType(filmDto.getType().name());
-//    return film;
-//  }
 
 }

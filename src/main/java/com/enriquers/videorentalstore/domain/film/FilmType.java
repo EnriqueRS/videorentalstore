@@ -1,6 +1,6 @@
-package com.enriquers.videorentalstore.domain;
+package com.enriquers.videorentalstore.domain.film;
 
-
+import com.enriquers.videorentalstore.domain.Price;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -10,16 +10,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "FILMS")
+@Table(name = "TYPES")
 @Getter
 @Setter
-public class Film {
+public class FilmType {
   @Id
   private Long id;
-
-  private String title;
-
+  private String name;
   @ManyToOne
-  @JoinColumn(name = "type_id")
-  private FilmType type;
+  @JoinColumn(name = "price_id")
+  private Price price;
 }
