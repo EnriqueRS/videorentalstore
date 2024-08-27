@@ -3,6 +3,8 @@ package com.enriquers.videorentalstore.controller;
 import com.enriquers.videorentalstore.model.dto.film.FilmDto;
 import com.enriquers.videorentalstore.model.dto.rental.RentalRequestDto;
 import com.enriquers.videorentalstore.model.dto.rental.RentalResponseDto;
+import com.enriquers.videorentalstore.model.dto.returnfilms.ReturnRequestDto;
+import com.enriquers.videorentalstore.model.dto.returnfilms.ReturnResponseDto;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -31,5 +33,11 @@ public interface VideoRentalStoreControllerAPI {
   @ApiResponse(responseCode = "200", description = "Successfully rented films",
   content = @Content(schema = @Schema(implementation = RentalResponseDto.class)))
   RentalResponseDto rentFilms(@Valid @RequestBody RentalRequestDto rentalRequestDto);
+
+  @PostMapping("/return")
+  @ResponseStatus(HttpStatus.OK)
+  @ApiResponse(responseCode = "200", description = "Successfully returned films",
+  content = @Content(schema = @Schema(implementation = ReturnResponseDto.class)))
+  ReturnResponseDto returnFilms(@Valid @RequestBody ReturnRequestDto returnRequestDto);
 
 }

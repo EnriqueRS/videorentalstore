@@ -23,7 +23,7 @@ public class RentalService {
 
     double totalPrice = 0;
     for (RentalFilmItemDto rentalFilmItemDto : rentalRequestDto.getFilms()) {
-      double price = rentFilm(rentalFilmItemDto.getTitle(), rentalFilmItemDto.getDays());
+      double price = calculateRentFilmPrice(rentalFilmItemDto);
       rentalFilmItemDto.setRentPrice(price);
       totalPrice += price;
       rentalResponseDto.getFilms().add(rentalFilmItemDto);
@@ -32,15 +32,15 @@ public class RentalService {
     return rentalResponseDto;
   }
 
-  public double rentFilm(String title, int daysRented) {
-    Optional<FilmDto> filmDtoOptional = filmService.getFilm(title);
+  public double calculateRentFilmPrice(RentalFilmItemDto rentalFilmItemDto) {
+    Optional<FilmDto> filmDtoOptional = filmService.getFilm(rentalFilmItemDto.getTitle());
     if (filmDtoOptional.isEmpty()) {
-      throw new FilmException(FilmException.FILM_NOT_FOUND, title);
+      throw new FilmException(FilmException.FILM_NOT_FOUND, rentalFilmItemDto.getTitle());
     }
     FilmDto filmDto = filmDtoOptional.get();
 
     PricingStrategy pricingStrategy = PricingStrategyFactory.getPricingStrategy(filmDto.getType());
-    return pricingStrategy.calculatePrice(daysRented);
+    return pricingStrategy.calculatePrice(rentalFilmItemDto.getDays());
   }
 
 }

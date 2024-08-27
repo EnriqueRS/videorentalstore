@@ -7,4 +7,9 @@ public class NewReleasePricingStrategy implements PricingStrategy {
   public double calculatePrice(int daysRented) {
     return PREMIUM_PRICE * daysRented;
   }
+
+  @Override
+  public double calculateLateCharge(int daysLate) {
+    return PREMIUM_PRICE * daysLate;
+  }
 }

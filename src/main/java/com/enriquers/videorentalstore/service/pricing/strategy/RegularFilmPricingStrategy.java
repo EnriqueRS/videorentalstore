@@ -11,4 +11,13 @@ public class RegularFilmPricingStrategy implements PricingStrategy {
       return BASIC_PRICE + (BASIC_PRICE * (daysRented - 3));
     }
   }
+
+  @Override
+  public double calculateLateCharge(int daysLate) {
+    if (daysLate <= 3) {
+      return BASIC_PRICE;
+    } else {
+      return BASIC_PRICE + (BASIC_PRICE * (daysLate - 3));
+    }
+  }
 }
