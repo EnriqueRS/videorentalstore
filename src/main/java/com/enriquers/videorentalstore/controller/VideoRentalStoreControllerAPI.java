@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,6 @@ public interface VideoRentalStoreControllerAPI {
   @ResponseStatus(HttpStatus.OK)
   @ApiResponse(responseCode = "200", description = "Successfully rented films",
   content = @Content(schema = @Schema(implementation = RentalResponseDto.class)))
-  RentalResponseDto rentFilms(@RequestBody RentalRequestDto rentalRequestDto);
+  RentalResponseDto rentFilms(@Valid @RequestBody RentalRequestDto rentalRequestDto);
 
 }

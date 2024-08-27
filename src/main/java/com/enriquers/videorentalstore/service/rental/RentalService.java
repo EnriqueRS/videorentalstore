@@ -1,6 +1,6 @@
 package com.enriquers.videorentalstore.service.rental;
 
-import com.enriquers.videorentalstore.exceptions.FilmNotFoundException;
+import com.enriquers.videorentalstore.exceptions.FilmException;
 import com.enriquers.videorentalstore.model.dto.film.FilmDto;
 import com.enriquers.videorentalstore.model.dto.rental.RentalFilmItemDto;
 import com.enriquers.videorentalstore.model.dto.rental.RentalRequestDto;
@@ -35,7 +35,7 @@ public class RentalService {
   public double rentFilm(String title, int daysRented) {
     Optional<FilmDto> filmDtoOptional = filmService.getFilm(title);
     if (filmDtoOptional.isEmpty()) {
-      throw new FilmNotFoundException(title);
+      throw new FilmException(FilmException.FILM_NOT_FOUND, title);
     }
     FilmDto filmDto = filmDtoOptional.get();
 
