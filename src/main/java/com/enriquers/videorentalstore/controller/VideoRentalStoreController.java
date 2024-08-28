@@ -1,10 +1,12 @@
 package com.enriquers.videorentalstore.controller;
 
+import com.enriquers.videorentalstore.model.dto.customer.CustomerDto;
 import com.enriquers.videorentalstore.model.dto.film.FilmDto;
 import com.enriquers.videorentalstore.model.dto.rental.RentalRequestDto;
 import com.enriquers.videorentalstore.model.dto.rental.RentalResponseDto;
 import com.enriquers.videorentalstore.model.dto.returnfilms.ReturnRequestDto;
 import com.enriquers.videorentalstore.model.dto.returnfilms.ReturnResponseDto;
+import com.enriquers.videorentalstore.service.customer.CustomerService;
 import com.enriquers.videorentalstore.service.film.FilmService;
 import com.enriquers.videorentalstore.service.rental.RentalService;
 import com.enriquers.videorentalstore.service.returnfilms.ReturnService;
@@ -19,6 +21,7 @@ public class VideoRentalStoreController implements VideoRentalStoreControllerAPI
   private final FilmService filmService;
   private final RentalService rentalService;
   private final ReturnService returnService;
+  private final CustomerService customerService;
 
   @Override
   public List<FilmDto> getAllFilms() {
@@ -33,5 +36,15 @@ public class VideoRentalStoreController implements VideoRentalStoreControllerAPI
   @Override
   public ReturnResponseDto returnFilms(ReturnRequestDto returnRequestDto) {
     return returnService.returnFilms(returnRequestDto);
+  }
+
+  @Override
+  public List<CustomerDto> getAllCustomers() {
+    return customerService.getAllCustomers();
+  }
+
+  @Override
+  public CustomerDto getCustomer(long customerId) {
+    return customerService.getCustomer(customerId);
   }
 }

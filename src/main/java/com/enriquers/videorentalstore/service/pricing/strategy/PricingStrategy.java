@@ -4,4 +4,6 @@ public interface PricingStrategy {
   double calculatePrice(int daysRented);
 
   double calculateLateCharge(int daysLate);
+
+  int getBonusPoints();
 }

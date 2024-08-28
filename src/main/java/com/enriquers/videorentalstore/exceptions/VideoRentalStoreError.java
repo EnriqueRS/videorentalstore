@@ -9,13 +9,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class FilmError {
+public class VideoRentalStoreError {
       private String message;
 
       @JsonInclude(JsonInclude.Include.NON_NULL)
       private List<String> errors;
 
-      public FilmError(String message) {
+      public VideoRentalStoreError(String message) {
             this.message = message;
       }
 }

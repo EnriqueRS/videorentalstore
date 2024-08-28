@@ -11,32 +11,32 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
 @RestControllerAdvice
-public class FilmExceptionHandler {
+public class VideoRentalStoreExceptionHandler {
 
-  @ExceptionHandler(FilmException.class)
+  @ExceptionHandler(VideoRentalStoreException.class)
   @ResponseStatus(HttpStatus.NOT_FOUND)
-  public FilmError handlePriceException(FilmException e) {
+  public VideoRentalStoreError handlePriceException(VideoRentalStoreException e) {
     log.error("Price exception", e);
-    return new FilmError(e.getMessage());
+    return new VideoRentalStoreError(e.getMessage());
   }
 
   @ExceptionHandler(MethodArgumentNotValidException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
-  public FilmError handleValidationException(MethodArgumentNotValidException e) {
+  public VideoRentalStoreError handleValidationException(MethodArgumentNotValidException e) {
     log.error("Validation exception", e);
-    FilmError filmError = new FilmError("Validation error");
+    VideoRentalStoreError videoRentalStoreError = new VideoRentalStoreError("Validation error");
 
     List<String> errors = new ArrayList<>();
     e.getAllErrors().forEach(err -> errors.add(err.getDefaultMessage()));
-    filmError.setErrors(errors);
+    videoRentalStoreError.setErrors(errors);
 
-    return filmError;
+    return videoRentalStoreError;
   }
 
   @ExceptionHandler(Exception.class)
   @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-  public FilmError handleException(Exception e) {
+  public VideoRentalStoreError handleException(Exception e) {
     log.error("Internal server error", e);
-    return new FilmError(e.getMessage());
+    return new VideoRentalStoreError(e.getMessage());
   }
 }

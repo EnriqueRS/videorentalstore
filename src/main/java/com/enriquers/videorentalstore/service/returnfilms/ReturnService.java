@@ -1,6 +1,6 @@
 package com.enriquers.videorentalstore.service.returnfilms;
 
-import com.enriquers.videorentalstore.exceptions.FilmException;
+import com.enriquers.videorentalstore.exceptions.VideoRentalStoreException;
 import com.enriquers.videorentalstore.model.dto.film.FilmDto;
 import com.enriquers.videorentalstore.model.dto.returnfilms.ReturnFilmItemDto;
 import com.enriquers.videorentalstore.model.dto.returnfilms.ReturnRequestDto;
@@ -35,7 +35,7 @@ public class ReturnService {
  public double calculateLateChargeFilm(ReturnFilmItemDto returnFilmItemDto) {
     Optional<FilmDto> filmDtoOptional = filmService.getFilm(returnFilmItemDto.getTitle());
     if (filmDtoOptional.isEmpty()) {
-      throw new FilmException(FilmException.FILM_NOT_FOUND, returnFilmItemDto.getTitle());
+      throw new VideoRentalStoreException(VideoRentalStoreException.FILM_NOT_FOUND, returnFilmItemDto.getTitle());
     }
     FilmDto filmDto = filmDtoOptional.get();
 
