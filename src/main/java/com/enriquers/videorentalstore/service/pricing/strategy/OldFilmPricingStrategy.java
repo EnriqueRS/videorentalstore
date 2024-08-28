@@ -15,7 +15,9 @@ public double calculatePrice(int daysRented) {
 
   @Override
   public double calculateLateCharge(int daysLate) {
-    if (daysLate <= 5) {
+    if (daysLate == 0) {
+      return 0;
+    } else if (daysLate > 0 && daysLate <= 5) {
       return BASIC_PRICE;
     } else {
       return BASIC_PRICE + (BASIC_PRICE * (daysLate - 5));

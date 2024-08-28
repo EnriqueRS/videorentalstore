@@ -1,0 +1,21 @@
+{
+  "customerId": 1,
+  "films": [
+    {
+      "title": "Matrix 11",
+      "days": 1
+    },
+    {
+      "title": "Spider Man",
+      "days": 5
+    },
+    {
+      "title": "Spider Man 2",
+      "days": 2
+    },
+    {
+      "title": "Out of Africa",
+      "days": 7
+    }
+  ]
+}

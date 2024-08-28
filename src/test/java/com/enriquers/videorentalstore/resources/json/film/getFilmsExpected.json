@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Matrix 11",
+    "type": "NEW_RELEASE"
+  },
+  {
+    "title": "Spider Man",
+    "type": "REGULAR_RENTAL"
+  },
+  {
+    "title": "Spider Man 2",
+    "type": "REGULAR_RENTAL"
+  },
+  {
+    "title": "Out of Africa",
+    "type": "OLD_FILM"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "films": [
+    {
+      "title": "Matrix 11",
+      "rentPrice": 40,
+      "days": 1
+    },
+    {
+      "title": "Spider Man",
+      "rentPrice": 90,
+      "days": 5
+    },
+    {
+      "title": "Spider Man 2",
+      "rentPrice": 30,
+      "days": 2
+    },
+    {
+      "title": "Out of Africa",
+      "rentPrice": 90,
+      "days": 7
+    }
+  ],
+  "totalPrice": 250
+}
