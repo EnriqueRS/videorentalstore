@@ -40,7 +40,7 @@ public class ReturnService {
     FilmDto filmDto = filmDtoOptional.get();
 
     PricingStrategy pricingStrategy = PricingStrategyFactory.getPricingStrategy(filmDto.getType());
-    return pricingStrategy.calculateLateCharge(returnFilmItemDto.getDays());
+    return pricingStrategy.calculateLateCharge(returnFilmItemDto.getDaysDelayed());
   }
 
 }

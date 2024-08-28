@@ -14,5 +14,5 @@ public class ReturnFilmItemDto {
   private String title;
   private double surcharge;
   @Min(value = 0, message = "Days must be greater than or equal to 0")
-  private int days;
+  private int daysDelayed;
 }
