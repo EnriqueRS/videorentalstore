@@ -1,5 +1,6 @@
 package com.enriquers.videorentalstore.service.pricing.factory;
 
+import com.enriquers.videorentalstore.exceptions.VideoRentalStoreException;
 import com.enriquers.videorentalstore.model.dto.film.FilmTypeEnum;
 import com.enriquers.videorentalstore.service.pricing.strategy.NewReleasePricingStrategy;
 import com.enriquers.videorentalstore.service.pricing.strategy.OldFilmPricingStrategy;
@@ -12,7 +13,7 @@ public class PricingStrategyFactory {
       case NEW_RELEASE -> new NewReleasePricingStrategy();
       case REGULAR_RENTAL -> new RegularFilmPricingStrategy();
       case OLD_FILM -> new OldFilmPricingStrategy();
-      default -> throw new IllegalArgumentException("Unknown film type: " + type);
+      default -> throw new VideoRentalStoreException(VideoRentalStoreException.FILM_TYPE_UNKNOW, type.name());
     };
   }
 }
