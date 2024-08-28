@@ -1,12 +1,3 @@
--  [ ] lombok
--  [ ] spring version
--  [ ] h2
-- [ ] patrones
-- [ ] controller advice
-- [ ] swagger
-- [ ] logs
-- [ ] inversión de dependencias
-- [ ] records
 
 # Video Rental Store
 
@@ -116,8 +107,8 @@ http://localhost:8080/swagger-ui.html
 
 ### Alquilar Películas
 
-```json
 POST /rent
+```json
 {
   "customerId": 1,
   "films": [
@@ -143,8 +134,8 @@ POST /rent
 
 ### Devolver Películas
 
-```json
 POST /return
+```json
 {
   "films": [
     {
